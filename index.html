@@ -1,1 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กรอกข้อมูลไลน์</title>
+</head>
+<body>
+    <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+    <script>
+        async function getUserProfile(){
+            const profile = await liff.getProfile()
+            var url = ''
+            url.concat('https://docs.google.com/forms/d/e/1FAIpQLSe8ixMJNfaVx5v1Hz9_ANinIXqdrCfzUEZWRbgp854yDwcQSQ/viewform?entry.794870734=',profile.userId,'&entry.1916800451=',profile.displayName,'&entry.580135833=',profile.statusMessage,'&entry.467885612=',profile.pictureUrl)
 
+            window.location.replace(url) 
+        }
+        async function main(){
+            await liff.init({liffId: "1655973864-AKGWwZkz"})
+                if(liff.isLoggedIn()){
+                    getUserProfile()
+                }else{
+                    liff.login()
+                }
+        }
+        main()
+    </script>
+</body>
+</html>

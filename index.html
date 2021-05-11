@@ -11,10 +11,12 @@
     <script>
         async function getUserProfile(){
             const profile = await liff.getProfile()
-            var url = ''
-            url.concat('https://docs.google.com/forms/d/e/1FAIpQLSe8ixMJNfaVx5v1Hz9_ANinIXqdrCfzUEZWRbgp854yDwcQSQ/viewform?entry.794870734=',${profile.userId},'&entry.1916800451=',${profile.displayName},'&entry.580135833=',${profile.statusMessage},'&entry.467885612=',${profile.pictureUrl})
-
-            window.location.replace(url) 
+            window.location.replace(`https://docs.google.com/forms/d/e/1FAIpQLSe8ixMJNfaVx5v1Hz9_ANinIXqdrCfzUEZWRbgp854yDwcQSQ/viewform?
+                entry.794870734=${profile.userId}
+                &entry.1916800451=${profile.displayName}
+                &entry.580135833=${profile.statusMessage}
+                &entry.467885612=${profile.pictureUrl}
+            `);
         }
         async function main(){
             await liff.init({liffId: "1655973864-AKGWwZkz"})

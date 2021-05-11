@@ -11,11 +11,18 @@
     <script>
         async function getUserProfile(){
             const profile = await liff.getProfile()
+            const email = await liff.getDecodedIDToken().email
             window.location.replace(`https://docs.google.com/forms/d/e/1FAIpQLSe8ixMJNfaVx5v1Hz9_ANinIXqdrCfzUEZWRbgp854yDwcQSQ/viewform?usp=pp_url
+                &entry.1425434172=
+                &entry.984452773=
                 &entry.794870734=${profile.userId}
                 &entry.1916800451=${profile.displayName}
-                &entry.580135833=${profile.statusMessage}
+                &entry.580135833=${email}
                 &entry.467885612=${profile.pictureUrl}
+                &entry.1449001912=
+                &entry.90133548=
+                &entry.1681902184=
+                &entry.1240980930=
             `);//url
         }
         async function main(){
